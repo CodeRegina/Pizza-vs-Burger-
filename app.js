@@ -1,19 +1,20 @@
-let Pizza = require('./pizza.js')
-let Hamburger = require('./burger.js')
+let Meal = require('./meal')
 
 let fight = (pizza, burger) => {
-    if (burger.burgerFlavor > pizza.pizzaFlavor) {
+    if (burger.flavor > pizza.flavor) {
         console.log(`${burger.name} is more popular than Pizza`);
     }
-    else if (burger.burgerFlavor < pizza.pizzaFlavor) {
+    else if (burger.flavor < pizza.flavor) {
         console.log(`${pizza.name} is more popular than Hamburger`);
     }
+    // Note this never runs (like very very unlikely) 
+    // because Math.random is very random
     else {
-        console.log(`${burger.name} and ${pizza.name} are equally popular`); 
+        console.log(`${burger.name} and ${pizza.name} are equally popular`);
     }
- }
+}
 
- const thePizza = new Hamburger('Hamburger ', Math.random()); 
- const theBurger = new Pizza('Pizza', Math.random());
+const burger = new Meal('Hamburger ', Math.random());
+const pizza = new Meal('Pizza', Math.random());
 
- fight(theBurger, thePizza);
+fight(pizza, burger);
